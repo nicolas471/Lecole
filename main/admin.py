@@ -15,8 +15,11 @@ class EventoAdmin(admin.ModelAdmin):
 class ImagenAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'img')
 
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'precio', 'promocion')
+
 admin.site.register(Tipo)
 admin.site.register(Artista, ArtistaAdmin)
 admin.site.register(Evento, EventoAdmin)
 admin.site.register(Imagen, ImagenAdmin)
-admin.site.register(Menu)
+admin.site.register(Menu, MenuAdmin)
