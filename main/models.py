@@ -61,4 +61,8 @@ class Imagen(models.Model):
     class Meta():
         verbose_name_plural = 'Imagenes'
 
-    img = models.FileField(upload_to='img/%Y/%m/%d')
+    nombre = models.CharField(max_length=30, default='imagen')
+    img = models.FileField('Ruta', upload_to='img/%Y/%m/%d')
+
+    def __unicode__(self):
+        return self.nombre
