@@ -6,11 +6,12 @@
 -->
 <html>
 	<head>
-		<title>Hyperspace by HTML5 UP</title>
+		<title>LECOLE</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		{%load staticfiles%}
+		<link rel="stylesheet" href="{%static "css/main.css"%}"/>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -36,7 +37,7 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<h1>Hyperspace</h1>
+							<h1>Lecole Restaurant</h1>
 							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
 							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
 							<ul class="actions">
@@ -48,7 +49,7 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
+							<a href="#" class="image"><img src="{%static "images/pic01.jpg" alt="" data-position="center center"%}"/></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Sed ipsum dolor</h2>
@@ -60,7 +61,7 @@
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+							<a href="#" class="image"><img src="{%static "images/pic02.jpg" alt="" data-position="top center"%}" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Feugiat consequat</h2>
@@ -72,7 +73,7 @@
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
+							<a href="#" class="image"><img src="{%static "images/pic03.jpg" alt="" data-position="25% 25%"%}"/></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Ultricies aliquam</h2>
@@ -197,13 +198,13 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
+		{%load staticfiles%}
+			<script src="{%static "js/jquery.min.js"%}"></script>
+			<script src="{%static "js/jquery.scrollex.min.js"%}"></script>
+			<script src="{%static "js/jquery.scrolly.min.js"%}"></script>
+			<script src="{%static "js/skel.min.js"%}"></script>
+			<script src="{%static "js/util.js"%}"></script>
+			<script src="{%static "js/main.js"%}"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
