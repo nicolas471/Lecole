@@ -14,9 +14,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from main.views import carta, evento
+from main import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', carta),
+    url(r'^$', views.carta),
 
 ]
