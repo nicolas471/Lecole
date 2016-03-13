@@ -18,5 +18,6 @@ from main import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.evento),
+    url(r'^generic', views.detalle_evento),
 
 ]
