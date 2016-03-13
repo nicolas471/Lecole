@@ -2,15 +2,16 @@ from django.contrib import admin
 from models import Tipo, Artista, Evento, Imagen, Menu
 
 class ArtistaAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'descripcion', 'tipo')
+    list_display = ('nombre', 'tipo')
     search_fields = ('nombre',)
-    filter_horizontal = ('fotos',)
+
 
 class EventoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'fecha_evento')
     list_filter = ('fecha_evento',)
     date_hierarchy = 'fecha_evento'
     filter_horizontal = ('espectaculo',)
+    filter_horizontal = ('imagen',)
 
 class ImagenAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'img')

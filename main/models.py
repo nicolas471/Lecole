@@ -35,11 +35,9 @@ class Tipo(models.Model):
 class Artista(models.Model):
 
     nombre = models.CharField(max_length=100, null=True)
-    descripcion = models.TextField(max_length=1000, null=True)
     tipo = models.ForeignKey(Tipo)
     email = models.EmailField('e-mail', null=True, blank=True)
     web = models.URLField(blank=True)
-    fotos = models.ManyToManyField('Imagen', blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -51,6 +49,8 @@ class Evento(models.Model):
     precio = models.FloatField(null=True, blank=True)
     fecha_evento = models.DateField('Fecha')
     fecha_alta = models.DateField(auto_now=True)
+    descripcion = models.TextField(max_length=1000, null=True)
+    imagen = models.ManyToManyField('Imagen', blank=True)
     espectaculo = models.ManyToManyField(Artista)
 
     def __unicode__(self):
