@@ -1,0 +1,21 @@
+{% extends  'main/base.html' %}
+
+{% block title%} Evento {%endblock%}
+
+{% block content %}
+{% for evento in lista_eventos %}
+    <section>
+        {%load staticfiles%}
+        <a href="#" class="image"><img src="{%static "images/pic01.jpg" alt="" data-position="center center"%}"/></a>
+        <div class="content">
+            <div class="inner">
+                <h2>{{ evento.nombre }}</h2>
+                <h4>{{evento.fecha_evento}} - {{ evento.hs_inicio}} hs</h4>
+                <ul class="actions">
+                    <li><a href="generic.html" class="button">Ver mas</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+{% endblock %}
