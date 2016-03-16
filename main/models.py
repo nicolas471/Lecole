@@ -4,7 +4,9 @@ from django.db import models
 class Horario(models.Model):
 
     #manana, mediodia, tarde, #noche
-    momento = models.CharField(max_length=10)
+    momento = models.CharField(max_length=15)
+    descripcion = models.TextField(max_length=250, default='no posee',
+                            null=True, blank=True)
 
     def __unicode__(self):
         return self.momento
@@ -18,7 +20,7 @@ class Menu(models.Model):
 
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(max_length=500)
-    precio = models.FloatField()
+    precio = models.FloatField(null=True, blank=True)
     promocion = models.BooleanField()
     hs_dia = models.ForeignKey(Horario)
 
