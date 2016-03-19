@@ -17,7 +17,10 @@ from django.contrib import admin
 from main import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.evento),
+    url(r'^$', views.intro),
+    url(r'^carta', views.carta),
+    url(r'^evento', views.evento),
+    url(r'^contacto', views.contacto),
     url(r'^generic', views.detalle_evento),
 
 ]
