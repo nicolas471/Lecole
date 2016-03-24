@@ -52,8 +52,8 @@ class Evento(models.Model):
     fecha_evento = models.DateField('Fecha')
     fecha_alta = models.DateField(auto_now=True)
     descripcion = models.TextField(max_length=1000, null=True)
-    imagen = models.ManyToManyField('Imagen', blank=True)
     espectaculo = models.ManyToManyField(Artista)
+    imagen = models.ManyToManyField('Imagen', blank=True)
 
     def __unicode__(self):
         return self.nombre
