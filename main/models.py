@@ -64,7 +64,7 @@ class Imagen(models.Model):
         verbose_name_plural = 'Imagenes'
 
     nombre = models.CharField(max_length=30, default='imagen')
-    img = models.FileField('Ruta', upload_to='img/%Y/%m/%d')
+    img = models.ImageField('Ruta', upload_to='img/%Y/%m/%d')
 
     def __unicode__(self):
         return self.nombre
