@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 
-from models import Evento
+from models import Evento, Horario, Menu
 
 
 def intro(request):
@@ -9,7 +9,10 @@ def intro(request):
 
 
 def carta(request):
-    return render(request, 'main/base_carta.html')
+    lista_menu = Menu.objects.all().order_by('id')
+    horarios = Horario.objects.all()
+    return render(request, 'main/base_carta.html',
+                  {'lista_menu': lista_menu, 'horarios': horarios})
 
 
 def evento(request):
