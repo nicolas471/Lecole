@@ -18,7 +18,7 @@ from main import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.intro),
-    url(r'^carta', views.carta),
+    url(r'^servicio', views.servicio),
     url(r'^evento', views.evento),
     url(r'^contacto', views.contacto),
     url(r'^generic', views.detalle_evento),

@@ -1,14 +1,14 @@
 import datetime
 from django.shortcuts import render
 
-from models import Evento, Horario, Menu
+from models import Evento, Horario, Menu, Imagen
 
 
 def intro(request):
     return render(request, 'main/base_intro.html')
 
 
-def carta(request):
+def servicio(request):
     lista_menu = Menu.objects.all().order_by('id')
     horarios = Horario.objects.all()
     return render(request, 'main/base_carta.html',
@@ -26,9 +26,9 @@ def evento(request):
     for evento in Evento.objects.all():
         if evento.fecha_evento >= ahora and evento.fecha_evento <= futuro:
             lista_semana.append(evento)
-
+    i = Imagen.objects.get(id=4)
     return render(request, 'main/base_evento.html',
-                    {'lista_eventos': lista_semana})
+                  {'lista_eventos': lista_semana, 'Imagen': i})
 
 
 def detalle_evento(request):
