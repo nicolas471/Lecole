@@ -10,7 +10,9 @@
             <section>
                 <span class="icon major fa-diamond"></span>
                 <h3>{{h.momento}}</h3>
-                <h5>{{h.descripcion}}</h5>
+                {% if h.descripcion != 'no posee' %}
+                    <h5>{{h.descripcion}}</h5>
+                {% endif %}
                 <ul>
                 {% for m in lista_menu %}
                     {% if m.hs_dia == h %}
