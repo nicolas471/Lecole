@@ -68,3 +68,21 @@ class Imagen(models.Model):
 
     def __unicode__(self):
         return self.nombre
+
+class GeneralSetting(models.Model):
+
+    class Meta():
+        verbose_name_plural = 'Seteos Generales'
+
+    seccion = models.ForeignKey('Section')
+    descripcion = models.TextField(max_length=500)
+
+    def __unicode__(self):
+        return self.seccion
+
+class Section(models.Model):
+
+    section = models.TextField(max_length=50)
+
+    def __unicode__(self):
+        return self.section

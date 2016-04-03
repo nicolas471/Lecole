@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Tipo, Artista, Evento, Imagen, Menu, Horario
+from models import Tipo, Artista, Evento, Imagen, Menu, Horario, GeneralSetting
 
 class ArtistaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'tipo')
@@ -25,3 +25,4 @@ admin.site.register(Evento, EventoAdmin)
 admin.site.register(Imagen, ImagenAdmin)
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Horario)
+admin.site.register(GeneralSetting)
