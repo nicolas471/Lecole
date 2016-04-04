@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 
-from models import Evento, Horario, Menu, Imagen, GeneralSetting
+from models import Evento, Horario, Menu, GeneralSetting
 
 
 def intro(request):
@@ -30,9 +30,8 @@ def evento(request):
     for evento in Evento.objects.order_by('fecha_evento'):
         if evento.fecha_evento >= ahora and evento.fecha_evento <= futuro:
             lista_semana.append(evento)
-    i = Imagen.objects.get(id=4)
     return render(request, 'main/base_evento.html',
-                  {'lista_eventos': lista_semana, 'Imagen': i})
+                  {'lista_eventos': lista_semana})
 
 
 def detalle_evento(request):
