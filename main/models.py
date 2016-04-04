@@ -53,18 +53,8 @@ class Evento(models.Model):
     fecha_alta = models.DateField(auto_now=True)
     descripcion = models.TextField(max_length=1000, null=True)
     espectaculo = models.ManyToManyField(Artista)
-    imagen = models.ManyToManyField('Imagen', blank=True)
-
-    def __unicode__(self):
-        return self.nombre
-
-class Imagen(models.Model):
-
-    class Meta():
-        verbose_name_plural = 'Imagenes'
-
-    nombre = models.CharField(max_length=30, default='imagen')
-    img = models.ImageField('Ruta', upload_to='imgenEvento')
+    imagen = models.ImageField('Ruta', upload_to='imgenEvento',
+                               default='\media\imagenEvento\default.jpg')
 
     def __unicode__(self):
         return self.nombre
