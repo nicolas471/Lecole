@@ -1,18 +1,22 @@
 import datetime
 from django.shortcuts import render
 
-from models import Evento, Horario, Menu, Imagen
+from models import Evento, Horario, Menu, Imagen, GeneralSetting
 
 
 def intro(request):
-    return render(request, 'main/base_intro.html')
+    general = GeneralSetting.objects.get(seccion=1)
+    return render(request, 'main/base_intro.html',
+                  {'general': general})
 
 
 def servicio(request):
     lista_menu = Menu.objects.all().order_by('id')
     horarios = Horario.objects.all()
+    general = GeneralSetting.objects.get(seccion=2)
     return render(request, 'main/base_carta.html',
-                  {'lista_menu': lista_menu, 'horarios': horarios})
+                  {'lista_menu': lista_menu, 'horarios': horarios,
+                   'general': general})
 
 
 def evento(request):
@@ -37,4 +41,6 @@ def detalle_evento(request):
 
 
 def contacto(request):
-    return render(request, 'main/base_contacto.html')
+    general = GeneralSetting.objects.get(seccion=3)
+    return render(request, 'main/base_contacto.html',
+                  {'general': general})

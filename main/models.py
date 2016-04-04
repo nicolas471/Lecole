@@ -75,10 +75,11 @@ class GeneralSetting(models.Model):
         verbose_name_plural = 'Seteos Generales'
 
     seccion = models.ForeignKey('Section')
+    titulo = models.CharField(max_length=50, default='no posee')
     descripcion = models.TextField(max_length=500)
 
     def __unicode__(self):
-        return self.seccion
+        return self.titulo
 
 class Section(models.Model):
 
