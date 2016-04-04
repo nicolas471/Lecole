@@ -27,7 +27,7 @@ def evento(request):
     ahora = datetime.datetime.date(ahora)
     futuro = datetime.datetime.date(futuro)
 
-    for evento in Evento.objects.all():
+    for evento in Evento.objects.order_by('fecha_evento'):
         if evento.fecha_evento >= ahora and evento.fecha_evento <= futuro:
             lista_semana.append(evento)
     i = Imagen.objects.get(id=4)
