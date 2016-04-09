@@ -30,6 +30,9 @@ def evento(request):
     for evento in Evento.objects.order_by('fecha_evento'):
         if evento.fecha_evento >= ahora and evento.fecha_evento <= futuro:
             lista_semana.append(evento)
+        if len(lista_semana) == 6:
+            break
+
     return render(request, 'main/base_evento.html',
                   {'lista_eventos': lista_semana})
 
