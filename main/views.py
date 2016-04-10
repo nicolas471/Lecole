@@ -28,7 +28,7 @@ def evento(request):
     ahora = datetime.datetime.date(ahora)
     futuro = datetime.datetime.date(futuro)
 
-    for evento in Evento.objects.order_by('fecha_evento'):
+    for evento in Evento.objects.order_by('fecha_evento', 'hs_inicio'):
         if evento.fecha_evento >= ahora and evento.fecha_evento <= futuro:
             lista_semana.append(evento)
         if len(lista_semana) == 6:
@@ -41,7 +41,7 @@ def evento(request):
 def eventos_mes(request):
     now = datetime.datetime.now()
     lista_mes = Evento.objects.filter(
-        fecha_evento__month = now.month).order_by('fecha_evento')
+        fecha_evento__month = now.month).order_by('fecha_evento', 'hs_inicio')
     mes = calendar.month_name[now.month]
 
     return render(request, 'main/generic_cartelera.html',
