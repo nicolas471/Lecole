@@ -1,4 +1,5 @@
 import datetime
+import calendar
 from django.shortcuts import render
 
 from models import Evento, Horario, Menu, GeneralSetting
@@ -35,6 +36,16 @@ def evento(request):
 
     return render(request, 'main/base_evento.html',
                   {'lista_eventos': lista_semana})
+
+
+def eventos_mes(request):
+    now = datetime.datetime.now()
+    lista_mes = Evento.objects.filter(
+        fecha_evento__month = now.month).order_by('fecha_evento')
+    mes = calendar.month_name[now.month]
+
+    return render(request, 'main/generic_cartelera.html',
+                  {'eventos': lista_mes, 'now': now})
 
 
 def detalle_evento(request):

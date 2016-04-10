@@ -1,0 +1,27 @@
+{% extends  'main/generic.html' %}
+
+{% block title%} Eventos Mes {%endblock%}
+
+{% block content %}
+<div id="wrapper">
+<!-- Main -->
+    <section id="main" class="wrapper">
+		<div class="inner">
+            <div id="table-wrapper">
+                <h2>Cartelera de  {{now| date:'N'}}</h2>
+                <table>
+                    <tbody>
+                        {%for e in eventos%}
+                        <tr>
+                            <td>{{e.nombre}}</td>
+                            <td>{{e.espectaculo.get}}</td>
+                            <td>{{e.fecha_evento| date:'D d'}}/ {{e.hs_inicio}} hs</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+		</div>
+	</section>
+</div>
+{% endblock %}
