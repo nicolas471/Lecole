@@ -8,7 +8,7 @@
     <section id="main" class="wrapper">
 		<div class="inner">
             <div id="table-wrapper">
-                <h2>Cartelera de  {{now| date:'N'}}</h2>
+                <h2>Cartelera de  {%now 'N'%}</h2>
                 <table>
                     <tbody>
                         {%for e in eventos%}

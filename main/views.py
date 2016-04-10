@@ -42,10 +42,9 @@ def eventos_mes(request):
     now = datetime.datetime.now()
     lista_mes = Evento.objects.filter(
         fecha_evento__month = now.month).order_by('fecha_evento', 'hs_inicio')
-    mes = calendar.month_name[now.month]
 
     return render(request, 'main/generic_cartelera.html',
-                  {'eventos': lista_mes, 'now': now})
+                  {'eventos': lista_mes})
 
 
 def detalle_evento(request):
