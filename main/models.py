@@ -29,7 +29,7 @@ class Menu(models.Model):
 
 class Tipo(models.Model):
 
-    tipo = models.CharField(max_length=20) #ej musica en vivo
+    tipo = models.CharField(max_length=20, unique=True) #ej musica en vivo
 
     def __unicode__(self):
         return self.tipo
