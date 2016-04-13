@@ -36,7 +36,7 @@ class Tipo(models.Model):
 
 class Artista(models.Model):
 
-    nombre = models.CharField(max_length=100, null=True)
+    nombre = models.CharField(max_length=100, null=True, unique=True)
     tipo = models.ForeignKey(Tipo)
     email = models.EmailField('e-mail', null=True, blank=True)
     web = models.URLField(blank=True)
