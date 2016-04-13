@@ -13,9 +13,10 @@
                     <tbody>
                         {%for e in eventos%}
                         <tr>
-                            <td>{{e.nombre}}</td>
-                            <td>{{e.espectaculo.get}}</td>
                             <td>{{e.fecha_evento| date:'D d'}}/ {{e.hs_inicio}} hs</td>
+                            <td>{{e.nombre}}</td>
+                            <td>{{e.espectaculo.all|join:'/'}}</td>
+                            
                         </tr>
                         {%endfor%}
                     </tbody>

@@ -7,7 +7,7 @@
 <!-- Main -->
     <section id="main" class="wrapper">
 		<div class="inner">
-            <h1 class="major">{{evento.nombre}}</h1><h4>{{evento.fecha_evento|date:'D d'}} {{evento.hs_inicio}} Hs</h4>
+            <h1 class="major">{{evento.nombre}}</h1><h4>{{evento.fecha_evento|date:'D d'}}-{{evento.hs_inicio}} Hs</h4>
         <span class="image left"><img src="{{evento.imagen.url}}" alt="" /></span>
         <h4>{{evento.espectaculo.all|join:'/'}} </h4>
         <p>{{evento.descripcion}}</p>
