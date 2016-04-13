@@ -6,22 +6,21 @@
 <section id="two" class="wrapper style2 spotlights">
     {% for evento in lista_eventos %}
     <section>
-        <a href="#" class="image"><img src="{{evento.imagen.url}}" alt="" data-position="center center" width=350em height=390em /></a>
+        <a href="#" class="image"><img src="{{evento.imagen.url}}" alt="" data-position="center center" width=320em height=320em /></a>
         <div class="content">
             <div class="inner">
                     <h2>{{ evento.nombre }}</h2>
                     <h4>{{evento.fecha_evento}} - {{ evento.hs_inicio}} hs</h4>
                     <p>{{evento.descripcion}}
                     <ul class="actions">
-                        <li><a href="generic.html" class="button">Ver mas</a></li>
+                        <li><a href="/e/{{evento.id}}" class="scrolly">Ver mas</a></li>
                     </ul>
             </div>
         </div>
     </section>
     {% empty %}
     <section>
-		{%load staticfiles%}
-        <a href="#" class="image"><img src="{% static" /media/imagenEvento/default.jpg "%}" alt="" data-position="center center" width=350em height=390em /></a>
+        <a href="#" class="image"><img src="" alt="" data-position="center center" width=350em height=390em /></a>
         <div class="content">
             <div class="inner">
                     <h2>No hay eventos disponibles!</h2>
@@ -30,5 +29,14 @@
         </div>
     </section>
     {% endfor %}
+    <footer id="subfooter">
+		<nav>
+			<ul>
+                <li><a href="/cartelera">CARTELERA {% now 'N' %}</a></li>
+			</ul>
+		</nav>
+	</footer>
+
+
 </section>
 {% endblock %}
