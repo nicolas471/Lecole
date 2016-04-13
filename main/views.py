@@ -1,7 +1,7 @@
 import datetime
 import calendar
 from django.shortcuts import render
-
+from django.http import Http404
 from models import Evento, Horario, Menu, GeneralSetting
 
 
@@ -47,9 +47,13 @@ def eventos_mes(request):
                   {'eventos': lista_mes})
 
 
-def detalle_evento(request):
+def detalle_evento(request, evento_id):
+    try:
+        evento = Evento.objects.get(id=evento_id)
+    except Evento.DoesNotExist:
+        raise Http404
 
-    return render(request, 'main/generic.html')
+    return render(request, 'main/generic_detalle.html', {'evento':evento})
 
 
 def contacto(request):
