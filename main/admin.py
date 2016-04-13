@@ -11,6 +11,7 @@ class EventoAdmin(admin.ModelAdmin):
     list_filter = ('fecha_evento',)
     date_hierarchy = 'fecha_evento'
     filter_horizontal = ('espectaculo',)
+    ordering = ('-fecha_evento',)
 
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'precio', 'promocion')
