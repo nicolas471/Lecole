@@ -15,6 +15,7 @@ class EventoAdmin(admin.ModelAdmin):
 
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'precio', 'promocion')
+    ordering = ('hs_dia',)
 
 admin.site.register(Tipo)
 admin.site.register(Artista, ArtistaAdmin)
