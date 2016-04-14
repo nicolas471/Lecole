@@ -62,6 +62,7 @@ class Evento(models.Model):
 class GeneralSetting(models.Model):
 
     class Meta():
+        verbose_name = 'Seteos'
         verbose_name_plural = 'Seteos Generales'
 
     seccion = models.ForeignKey('Section')
