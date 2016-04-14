@@ -7,6 +7,17 @@ class ArtistaAdmin(admin.ModelAdmin):
 
 
 class EventoAdmin(admin.ModelAdmin):
+
+    fieldsets=(
+        (None, {
+            'fields':(('nombre', 'imagen'),('fecha_evento', 'hs_inicio', 'precio'),
+                      'descripcion',)
+        }),
+        ('Artistas', {
+            'fields':['espectaculo'], 'classes':['wide', 'extrapretty'],
+        })
+    )
+
     list_display = ('nombre', 'fecha_evento')
     list_filter = ('fecha_evento',)
     date_hierarchy = 'fecha_evento'
