@@ -53,7 +53,7 @@ class Evento(models.Model):
     fecha_alta = models.DateField(auto_now=True)
     descripcion = models.TextField(max_length=1000, null=True)
     espectaculo = models.ManyToManyField(Artista)
-    imagen = models.ImageField('Ruta', upload_to='imgenEvento',
+    imagen = models.ImageField(upload_to='imgenEvento',
                                default='\media\imagenEvento\default.jpg')
 
     def __unicode__(self):
