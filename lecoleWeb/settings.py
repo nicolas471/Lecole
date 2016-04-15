@@ -14,7 +14,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+host = os.uname()
+host = host[1]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -23,25 +24,42 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'mc*prg6zi8#2ip6e_t+=5d4t#rn0tx#s6=r_m7m8ea1z(3v68b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if host == 'vps-1169379-x':
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
+if host == 'vps-1169379-x':
+    INSTALLED_APPS = (
+        'flat',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'django_extensions',
+        'debug_toolbar',
+        'main',
+    )
+else:
+    INSTALLED_APPS = (
+        'flat',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'django_extensions',
+        'debug_toolbar',
+        'main',
+    )
 
-INSTALLED_APPS = (
-    'flat',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_extensions',
-    'debug_toolbar',
-    'main',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
