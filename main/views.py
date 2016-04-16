@@ -6,7 +6,15 @@ from models import Evento, Horario, Menu, GeneralSetting
 
 
 def intro(request):
-    general = GeneralSetting.objects.get(seccion=1)
+
+    try:
+        general = GeneralSetting.objects.all()
+        for g in general:
+            if g.seccion.section == 'intro':
+                general = g
+                break
+    except:
+        general = Null
     return render(request, 'main/base_intro.html',
                   {'general': general})
 
@@ -14,7 +22,15 @@ def intro(request):
 def servicio(request):
     lista_menu = Menu.objects.all().order_by('id')
     horarios = Horario.objects.all()
-    general = GeneralSetting.objects.get(seccion=2)
+    try:
+        general = GeneralSetting.objects.all()
+        for g in general:
+            if g.seccion.section == 'servicio':
+                general = g
+                break
+    except:
+        general = Null
+
     return render(request, 'main/base_carta.html',
                   {'lista_menu': lista_menu, 'horarios': horarios,
                    'general': general})
@@ -57,6 +73,14 @@ def detalle_evento(request, evento_id):
 
 
 def contacto(request):
-    general = GeneralSetting.objects.get(seccion=3)
+    try:
+        general = GeneralSetting.objects.all()
+        for g in general:
+            if g.seccion.section == 'contacto':
+                general = g
+                break
+    except:
+        general = Null
+
     return render(request, 'main/base_contacto.html',
                   {'general': general})
