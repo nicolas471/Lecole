@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-form .base import *
+from .base import *
 
 DEBUG = False
 
