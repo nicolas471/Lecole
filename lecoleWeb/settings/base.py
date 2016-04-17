@@ -91,7 +91,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = None
+TIME_ZONE = 'America/Argentina/Cordoba'
 
 USE_I18N = True
 
