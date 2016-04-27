@@ -1,0 +1,14 @@
+{% extends  'main/generic.html' %}
+
+{% block title%} Transmision en Vivo{%endblock%}
+
+{% block content %}
+<div id="wrapper">
+<!-- Main -->
+    <section id="main" class="wrapper">
+		<div class="inner">
+            <center><embed src="http://179.43.112.52:8000/especialjazz.ogg" type="video/ogg" controller="true" autoplay="true" height="400" width="400"></embed></center>
+		</div>
+	</section>
+</div>
+{% endblock %}
