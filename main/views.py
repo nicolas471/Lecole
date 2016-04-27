@@ -84,3 +84,7 @@ def contacto(request):
 
     return render(request, 'main/base_contacto.html',
                   {'general': general})
+
+def transmision_vivo(request):
+
+    return render(request, 'main/generic_transmision.html')

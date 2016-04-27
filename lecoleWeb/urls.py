@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^contacto', views.contacto),
     url(r'^e/(?P<evento_id>\d+)$', views.detalle_evento),
     url(r'^cartelera', views.eventos_mes),
+    url(r'^transmision_en_vivo', views.transmision_vivo),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
