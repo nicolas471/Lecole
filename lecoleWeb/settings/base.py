@@ -71,21 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'lecoleWeb.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbLecole',
-        'USER': 'root',
-        'PASSWORD': 'mirage2520'
-    }
-}
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 

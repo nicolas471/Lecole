@@ -5,3 +5,10 @@ INSTALLED_APPS += (
     'django_extensions',
     'debug_toolbar',
 )
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'dbLecole',
+    }
+}
