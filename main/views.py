@@ -1,5 +1,4 @@
 import datetime
-import calendar
 from django.shortcuts import render
 from django.http import Http404
 from models import Evento, Horario, Menu, GeneralSetting
