@@ -1,11 +1,27 @@
 import datetime
+import requests
 from django.shortcuts import render
 from django.http import Http404
 from models import Evento, Horario, Menu, GeneralSetting
+from bs4 import BeautifulSoup
+
+
+def trans_status():
+    r = requests.get('http://179.43.112.52:8000')
+    soup = BeautifulSoup(r.text, 'html.parser')
+    trans = soup.find_all('h3')
+    if trans:
+        trans = str(trans[0].text)
+        trans = trans.split('/')
+        trans = trans[1]
+        if trans == 'transmision.ogg':
+                return True
+    else:
+        return False
 
 
 def intro(request):
-
+    status = trans_status()
     try:
         general = GeneralSetting.objects.all()
         for g in general:
@@ -15,7 +31,7 @@ def intro(request):
     except:
         general = Null
     return render(request, 'main/base_intro.html',
-                  {'general': general})
+                  {'general': general, 'status': status})
 
 
 def servicio(request):
