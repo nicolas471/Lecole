@@ -18,3 +18,5 @@ six==1.10.0
 sqlparse==0.1.19
 traitlets==4.1.0
 wheel==0.29.0
+beautifulsoup4==4.4.1 
+requests==2.10.0
