@@ -101,5 +101,6 @@ def contacto(request):
                   {'general': general})
 
 def transmision_vivo(request):
-
-    return render(request, 'main/generic_transmision.html')
+    status = trans_status()
+    return render(request, 'main/generic_transmision.html',
+                  {'status':status})

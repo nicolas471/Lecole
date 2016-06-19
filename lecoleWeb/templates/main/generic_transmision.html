@@ -7,7 +7,11 @@
 <!-- Main -->
     <section id="main" class="wrapper">
 		<div class="inner">
-            <center><embed src="http://179.43.112.52:8000/especialjazz.ogg" type="video/ogg" controller="true" autoplay="true" height="400" width="400"></embed></center>
+            {% if status  %}
+                <center><embed src="http://179.43.112.52:8000/transmision.ogg" type="video/ogg" controller="true" autoplay="true" height="400" width="400"></embed></center>
+            {% else %}
+                <center><h3>No hay transmisiones disponibles en este momento!</h3></center>
+            {% endif %}
 		</div>
 	</section>
 </div>
