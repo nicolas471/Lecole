@@ -29,7 +29,7 @@ def intro(request):
                 general = g
                 break
     except:
-        general = Null
+        general = None
     return render(request, 'main/base_intro.html',
                   {'general': general, 'status': status})
 
@@ -44,7 +44,7 @@ def servicio(request):
                 general = g
                 break
     except:
-        general = Null
+        general = None
 
     return render(request, 'main/base_carta.html',
                   {'lista_menu': lista_menu, 'horarios': horarios,
@@ -72,7 +72,7 @@ def evento(request):
 def eventos_mes(request):
     now = datetime.datetime.now()
     lista_mes = Evento.objects.filter(
-        fecha_evento__month = now.month).order_by('fecha_evento', 'hs_inicio')
+        fecha_evento__month=now.month).order_by('fecha_evento', 'hs_inicio')
 
     return render(request, 'main/generic_cartelera.html',
                   {'eventos': lista_mes})
@@ -84,7 +84,7 @@ def detalle_evento(request, evento_id):
     except Evento.DoesNotExist:
         raise Http404
 
-    return render(request, 'main/generic_detalle.html', {'evento':evento})
+    return render(request, 'main/generic_detalle.html', {'evento': evento})
 
 
 def contacto(request):
@@ -95,12 +95,13 @@ def contacto(request):
                 general = g
                 break
     except:
-        general = Null
+        general = None
 
     return render(request, 'main/base_contacto.html',
                   {'general': general})
 
+
 def transmision_vivo(request):
     status = trans_status()
     return render(request, 'main/generic_transmision.html',
-                  {'status':status})
+                  {'status': status})
