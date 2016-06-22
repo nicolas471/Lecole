@@ -59,6 +59,10 @@ class Evento(models.Model):
     def __unicode__(self):
         return self.nombre
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('main.views.detalle_evento', args=[str(self.id)])
+
 class GeneralSetting(models.Model):
 
     class Meta():
