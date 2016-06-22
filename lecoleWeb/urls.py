@@ -15,8 +15,17 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from main import views
+from main.models import Evento
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import GenericSitemap
+
+info_dict = {
+    'queryset': Evento.objects.all(),
+    'data_field': 'fecha_evento',
+}
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.intro),
@@ -26,4 +35,7 @@ urlpatterns = [
     url(r'^e/(?P<evento_id>\d+)$', views.detalle_evento),
     url(r'^cartelera', views.eventos_mes),
     url(r'^transmision_en_vivo', views.transmision_vivo),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps':
+        {'eventos': GenericSitemap(info_dict, priority=0.6)}},
+        name='django.contrib.sitemaps.views.sitemap')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
