@@ -13,7 +13,7 @@
                     <h4>{{evento.fecha_evento}} - {{ evento.hs_inicio}} hs</h4>
                     <p>{{evento.descripcion}}
                     <ul class="actions">
-                        <li><a href="/e/{{evento.id}}" class="scrolly">Ver mas</a></li>
+                        <li><a href="/e/{{evento.nombre.split|join:'-'}}" class="scrolly">Ver mas</a></li>
                     </ul>
             </div>
         </div>
