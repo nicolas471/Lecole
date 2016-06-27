@@ -3,10 +3,10 @@ from django.db import models
 
 class Horario(models.Model):
 
-    #manana, mediodia, tarde, #noche
+    # manana, mediodia, tarde, #noche
     momento = models.CharField(max_length=15)
     descripcion = models.TextField(max_length=250, default='no posee',
-                            null=True, blank=True)
+                                   null=True, blank=True)
 
     def __unicode__(self):
         return self.momento
@@ -27,12 +27,15 @@ class Menu(models.Model):
     def __unicode__(self):
         return self.nombre
 
-class Tipo(models.Model):
 
-    tipo = models.CharField(max_length=20, unique=True) #ej musica en vivo
+class Tipo(models.Model):
+    '''ej musica en vivo'''
+
+    tipo = models.CharField(max_length=20, unique=True)
 
     def __unicode__(self):
         return self.tipo
+
 
 class Artista(models.Model):
 
@@ -43,6 +46,7 @@ class Artista(models.Model):
 
     def __unicode__(self):
         return self.nombre
+
 
 class Evento(models.Model):
 
@@ -61,7 +65,9 @@ class Evento(models.Model):
 
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
-        return reverse('main.views.detalle_evento', args=[str(self.id)])
+        return reverse('main.views.detalle_evento',
+                       args=[str(self.nombre).replace(' ', '_')])
+
 
 class GeneralSetting(models.Model):
 
@@ -75,6 +81,7 @@ class GeneralSetting(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
 
 class Section(models.Model):
 
