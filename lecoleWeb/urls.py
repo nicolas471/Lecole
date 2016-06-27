@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^servicio', views.servicio),
     url(r'^evento', views.evento),
     url(r'^contacto', views.contacto),
-    url(r'^e/(?P<evento_id>\d+)$', views.detalle_evento),
+    url(r'^e/(?P<evento_id>.*)', views.detalle_evento),
     url(r'^cartelera', views.eventos_mes),
     url(r'^transmision_en_vivo', views.transmision_vivo),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps':
