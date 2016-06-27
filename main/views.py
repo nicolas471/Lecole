@@ -79,8 +79,10 @@ def eventos_mes(request):
 
 
 def detalle_evento(request, evento_id):
+    evento_id = evento_id.replace('-', ' ')
     try:
-        evento = Evento.objects.get(id=evento_id)
+        evento = Evento.objects.filter(nombre=evento_id)
+        evento = evento.order_by('-fecha_evento')[0]
     except Evento.DoesNotExist:
         raise Http404
 
